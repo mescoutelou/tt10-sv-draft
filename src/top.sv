@@ -29,7 +29,7 @@ module tt_um_sv (
       uo_out <= 'h00;         
     end 
     else begin
-      uo_out  = ui_in + uio_in
+      uo_out  = ui_in + uio_in;
     end
   end
 
