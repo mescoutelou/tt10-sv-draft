@@ -16,6 +16,8 @@ module tt_um_sv (
     input  logic       rst_n     // reset_n - low to reset
 );
 
+  logic [7:0] r_cnt;
+
   // All output pins must be assigned. If not used, assign to 0.
 //  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
@@ -26,10 +28,12 @@ module tt_um_sv (
 
   always_ff @(posedge clk) begin
     if (~rst_n) begin
-      uo_out <= 'h00;         
+      uo_out <= 'h00; 
+      r_cnt <= 'h00;          
     end 
     else begin
-      uo_out <= ui_in + uio_in + 'h1;
+      uo_out <= ui_in + uio_in + r_cnt;
+      r_cnt <= r_cnt + 'h1;
     end
   end
 
