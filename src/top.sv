@@ -24,12 +24,6 @@ module tt_um_sv (
   // List all unused inputs to prevent warnings
   logic _unused = &{ena, clk, rst_n, 1'b0};
 
-  always_ff @(posedge clock iff reset == 0 or posedge reset)
-  if (reset)
-    q <= 0;
-  else if (enable)
-    q++;
-
   always_ff @(posedge clk) begin
     if (~rst_n) begin
       uo_out <= 'h00;         
