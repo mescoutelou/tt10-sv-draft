@@ -33,7 +33,7 @@ module tt_um_sv (
     end 
     else begin
       uo_out <= ui_in + uio_in + r_cnt;
-      r_cnt <= r_cnt + 'h1;
+      r_cnt <= r_cnt + 'h2;
     end
   end
 
